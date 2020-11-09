@@ -1,4 +1,5 @@
 import 'package:ecoShop/screens/loginpage.dart';
+import 'package:ecoShop/screens/signuppage.dart';
 import 'package:flutter/material.dart';
 import '../shared/styles.dart';
 
@@ -74,7 +75,9 @@ class _StartScreenState extends State<StartScreen> {
               height: 10,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                openSignupPage();
+              },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 width: MediaQuery.of(context).size.width,
@@ -104,5 +107,9 @@ class _StartScreenState extends State<StartScreen> {
   void openLoginPage() {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => Loginpage()));
+  }
+  void openSignupPage() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => Signuppage()));
   }
 }
