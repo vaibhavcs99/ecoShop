@@ -24,7 +24,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), openStartScreen);
+    Timer(Duration(seconds: 2), openStartScreen);
   }
 
   @override

@@ -1,7 +1,9 @@
+import 'package:ecoShop/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'favorites_screen.dart';
 import 'category_screen.dart';
 import 'home_screen.dart';
+import 'cart_screen.dart';
 
 class BottomTabs extends StatefulWidget {
   @override
@@ -13,6 +15,8 @@ class _BottomTabsState extends State<BottomTabs> {
     Homescreen(),
     Categoryscreen(),
     Favoritescreen(),
+    Cartscreen(),
+    Profilescreen(),
   ];
   int _selectedPageIndex = 0;
   void _selectPage(int index) {
@@ -29,7 +33,7 @@ class _BottomTabsState extends State<BottomTabs> {
         onTap: _selectPage,
         backgroundColor: Theme.of(context).primaryColor,
         selectedItemColor: Colors.purple,
-        unselectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black.withOpacity(.80),
         currentIndex: _selectedPageIndex,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
@@ -37,6 +41,8 @@ class _BottomTabsState extends State<BottomTabs> {
               icon: Icon(Icons.category), label: 'Category'),
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite), label: 'Favorite'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_bag), label: 'Cart'),
           BottomNavigationBarItem(icon: Icon(Icons.face), label: 'Profile'),
         ],
       ),
