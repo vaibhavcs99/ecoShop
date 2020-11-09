@@ -1,5 +1,6 @@
+import 'package:ecoShop/screens/navbar.dart';
 import 'package:flutter/material.dart';
-import 'styles.dart';
+import '../shared/styles.dart';
 
 class Loginpage extends StatelessWidget {
   @override
@@ -104,7 +105,10 @@ class _LoginPageState extends State<LoginPage> {
                 height: 10,
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => BottomTabs()));
+                },
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   width: MediaQuery.of(context).size.width,

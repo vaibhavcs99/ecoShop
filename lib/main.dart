@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Homescreen.dart';
+import 'screens/start_screen.dart';
 import 'dart:async';
 
 void main() {
@@ -24,7 +24,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), openHomeScreen);
+    Timer(Duration(seconds: 3), openStartScreen);
   }
 
   @override
@@ -48,8 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void openHomeScreen() {
+  void openStartScreen() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Homescreen()));
+        context, MaterialPageRoute(builder: (context) => StartScreen()));
   }
 }

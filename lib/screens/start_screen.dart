@@ -1,22 +1,22 @@
-import 'package:ecoShop/Loginpage.dart';
+import 'package:ecoShop/screens/loginpage.dart';
 import 'package:flutter/material.dart';
-import 'styles.dart';
+import '../shared/styles.dart';
 
-class Homescreen extends StatelessWidget {
+class Startscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      home: StartScreen(),
     );
   }
 }
 
-class HomeScreen extends StatefulWidget {
+class StartScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _StartScreenState createState() => _StartScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
