@@ -1,8 +1,6 @@
-import 'package:ecoShop/widgets/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import '../widgets/horizontal_listview.dart';
-import '../models/product.dart';
 
 class Homescreen extends StatelessWidget {
   @override
