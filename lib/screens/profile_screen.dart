@@ -1,3 +1,4 @@
+import 'package:ecoShop/shared/styles.dart';
 import 'package:flutter/material.dart';
 import 'profile_screen/myinfo.dart';
 
@@ -19,14 +20,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: <Widget>[
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Text(
+          "My Profile",
+          style: TextStyle(fontFamily: 'pacifico', color: Colors.black),
+        ),
+        elevation: 0.5,
+      ),
+      body: ListView(children: [
         Container(
-          constraints: BoxConstraints.expand(
-            height:
-                Theme.of(context).textTheme.headline4.fontSize * 1.1 + 160.0,
+          decoration: BoxDecoration(
+            gradient: gradientButtons,
           ),
+          height: 150,
           padding: const EdgeInsets.all(8.0),
-          color: Colors.purple,
           alignment: Alignment.center,
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
@@ -48,8 +56,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'poppins',
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 Text(
@@ -58,7 +66,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     color: Colors.white,
                     fontFamily: 'poppins',
                     fontSize: 14,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 Text(
@@ -67,153 +75,98 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     color: Colors.white,
                     fontFamily: 'poppins',
                     fontSize: 14,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
             ),
           ]),
         ),
-        SizedBox(
-          height: 30,
+        InkWell(
+            onTap: () {
+              openMyInfo(context);
+            },
+            child: ListTile(
+                title: Text("Profile",
+                    style: TextStyle(
+                        fontFamily: 'poppins',
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500)),
+                leading: Icon(
+                  Icons.face,
+                ))),
+        Divider(
+          height: 5,
         ),
         InkWell(
-          onTap: () {
-            openMyInfo();
-          },
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 13),
-            width: 300,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-                color: Colors.white,
-                border: Border.all(color: Colors.purple)),
-            child: Center(
-              child: Text(
-                "MY INFO",
-                style: TextStyle(
-                  color: Colors.purple,
-                  fontFamily: 'sfpro',
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 17,
+            onTap: () {
+              openMyInfo(context);
+            },
+            child: ListTile(
+                title: Text("Orders",
+                    style: TextStyle(
+                        fontFamily: 'poppins',
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500)),
+                leading: Icon(
+                  Icons.shopping_bag,
+                ))),
+        Divider(
+          height: 5,
         ),
         InkWell(
-          onTap: () {
-            //openMyInfo();
-          },
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 13),
-            width: 300,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-                color: Colors.white,
-                border: Border.all(color: Colors.purple)),
-            child: Center(
-              child: Text(
-                "ORDERS",
-                style: TextStyle(
-                  color: Colors.purple,
-                  fontFamily: 'sfpro',
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 17,
+            onTap: () {
+              openMyInfo(context);
+            },
+            child: ListTile(
+                title: Text("Settings",
+                    style: TextStyle(
+                        fontFamily: 'poppins',
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500)),
+                leading: Icon(
+                  Icons.settings,
+                ))),
+        Divider(
+          height: 5,
         ),
         InkWell(
-          onTap: () {
-            //openMyInfo();
-          },
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 13),
-            width: 300,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-                color: Colors.white,
-                border: Border.all(color: Colors.purple)),
-            child: Center(
-              child: Text(
-                "SETTINGS",
-                style: TextStyle(
-                  color: Colors.purple,
-                  fontFamily: 'sfpro',
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 17,
+            onTap: () {
+              openMyInfo(context);
+            },
+            child: ListTile(
+                title: Text("Invite a Friend",
+                    style: TextStyle(
+                        fontFamily: 'poppins',
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500)),
+                leading: Icon(
+                  Icons.person,
+                ))),
+        Divider(
+          thickness: 5,
         ),
         InkWell(
-          onTap: () {
-            //openMyInfo();
-          },
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 13),
-            width: 300,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-                color: Colors.white,
-                border: Border.all(color: Colors.purple)),
-            child: Center(
-              child: Text(
-                "INVITE A FRIEND",
-                style: TextStyle(
-                  color: Colors.purple,
-                  fontFamily: 'sfpro',
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 17,
-        ),
-        InkWell(
-          onTap: () {
-            //openMyInfo();
-          },
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 13),
-            width: 300,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(40)),
-                color: Colors.white,
-                border: Border.all(color: Colors.purple)),
-            child: Center(
-              child: Text(
-                "LOGOUT",
-                style: TextStyle(
-                  color: Colors.purple,
-                  fontFamily: 'sfpro',
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-        ),
+            onTap: () {
+              openMyInfo(context);
+            },
+            child: ListTile(
+                title: Text("Logout",
+                    style: TextStyle(
+                        fontFamily: 'poppins',
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500)),
+                leading: Icon(
+                  Icons.logout,
+                ))),
+        Divider(
+          thickness: 5,
+        )
       ]),
     );
   }
 
-  void openMyInfo() {
+  void openMyInfo(context) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => Myinfo()));
   }
 }

@@ -43,7 +43,7 @@ class _BottomTabsState extends State<BottomTabs> {
               icon: Icon(Icons.favorite), label: 'Favorite'),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_bag), label: 'Cart'),
-          BottomNavigationBarItem(icon: Icon(Icons.face), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
         ],
       ),
     );
