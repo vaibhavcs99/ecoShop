@@ -3,7 +3,7 @@ import '../widgets/product_item.dart';
 import '../models/product.dart';
 
 class Categoryscreen extends StatelessWidget {
-  List<Product> loadedProducts = [
+  final List<Product> loadedProducts = [
     Product(
         id: "001",
         title: "Hamburger",
@@ -27,10 +27,10 @@ class Categoryscreen extends StatelessWidget {
         favorite: false),
     Product(
         id: "004",
-        title: "Strawberry",
-        imageUrl: "images/1.png",
+        title: "Strawberry is the new vegetable",
+        imageUrl: "https://picsum.photos/500",
         price: 50,
-        description: "https://picsum.photos/500",
+        description: "Very nice Strawberry",
         favorite: false),
     Product(
         id: "005",
@@ -64,16 +64,24 @@ class Categoryscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Text(
+          "Shopping App",
+          style: TextStyle(fontFamily: 'pacifico', color: Colors.black),
+        ),
+        elevation: 0.5,
+      ),
       body: GridView.builder(
-        padding: const EdgeInsets.all(8.0),
+        //padding: const EdgeInsets.all(8.0),
         itemCount: loadedProducts.length,
-        itemBuilder: (ctx, i) => Productitem(this.loadedProducts[i].id,
-            this.loadedProducts[i].title, this.loadedProducts[i].imageUrl),
+        itemBuilder: (ctx, i) => Productitem(
+            this.loadedProducts[i].id,
+            this.loadedProducts[i].title,
+            this.loadedProducts[i].imageUrl,
+            this.loadedProducts[i].price),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 3 / 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10),
+            crossAxisCount: 2, childAspectRatio: 63 / 100),
       ),
     );
   }
