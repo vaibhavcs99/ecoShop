@@ -6,7 +6,7 @@ class Product {
   final String description;
   final double price;
   final String imageUrl;
-  bool favorite;
+  final bool favorite;
 
   Product(
       {@required this.id,
