@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
+import '../screens/item_details.dart';
+import 'package:provider/provider.dart';
+import '../models/product.dart';
 
-class Productitem extends StatelessWidget {
-  final String id;
-  final String title;
-  final String imageUrl;
-  final double price;
-
-  Productitem(this.id, this.title, this.imageUrl, this.price);
+class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final product = Provider.of<Product>(context, listen: false);
     return GridTile(
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -20,25 +18,35 @@ class Productitem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                Image.network(
-                  imageUrl,
-                  fit: BoxFit.cover,
-                ),
-                Text(
-                  title,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.start,
-                  maxLines: 2,
-                  softWrap: true,
-                  style: TextStyle(
-                    fontFamily: 'poppins',
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushNamed(ItemDetails.path, arguments: product.id);
+                  },
+                  child: Column(
+                    children: [
+                      Image.network(
+                        product.imageUrl,
+                        fit: BoxFit.cover,
+                      ),
+                      Text(
+                        product.title,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.start,
+                        maxLines: 2,
+                        softWrap: true,
+                        style: TextStyle(
+                          fontFamily: 'poppins',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Spacer(),
                 Text(
-                  "\₹$price",
+                  product.price.toString(),
                   textAlign: TextAlign.start,
                   maxLines: 1,
                   softWrap: true,
@@ -50,15 +58,23 @@ class Productitem extends StatelessWidget {
                 Divider(
                   height: 0,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    IconButton(icon: Icon(Icons.favorite), onPressed: null),
-                    IconButton(
-                        icon: Icon(Icons.add_shopping_cart_sharp),
-                        onPressed: null)
-                  ],
+                Consumer<Product>(
+                  builder: (context, value, child) => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.favorite),
+                        color: product.favorite ? Colors.red : Colors.grey,
+                        onPressed: () {
+                          product.toggleFavorite();
+                        },
+                      ),
+                      IconButton(
+                          icon: Icon(Icons.add_shopping_cart_sharp),
+                          onPressed: null)
+                    ],
+                  ),
                 ),
               ],
             ),

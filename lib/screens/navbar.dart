@@ -12,7 +12,7 @@ class BottomTabs extends StatefulWidget {
 
 class _BottomTabsState extends State<BottomTabs> {
   List<Widget> _pages = [
-    Homescreen(),
+    HomeScreen(),
     Categoryscreen(),
     Favoritescreen(),
     Cartscreen(),
@@ -30,8 +30,9 @@ class _BottomTabsState extends State<BottomTabs> {
     return Scaffold(
       body: _pages[_selectedPageIndex],
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         onTap: _selectPage,
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.white,
         selectedItemColor: Colors.purple,
         unselectedItemColor: Colors.black.withOpacity(.80),
         currentIndex: _selectedPageIndex,

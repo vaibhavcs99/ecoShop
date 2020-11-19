@@ -2,15 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:ecoShop/shared/styles.dart';
 
-class Myinfo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyInfo(),
-    );
-  }
-}
-
 class MyInfo extends StatefulWidget {
   @override
   _MyInfoState createState() => _MyInfoState();
