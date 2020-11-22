@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:ecoShop/shared/styles.dart';
+import '../../shared/styles.dart';
 
 class MyInfo extends StatefulWidget {
   @override
@@ -45,10 +45,11 @@ class _MyInfoState extends State<MyInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         title: Text(
-          "My Profile",
-          style: TextStyle(fontFamily: 'pacifico', color: Colors.black),
+          "Profile",
+          style: TextStyle(color: Colors.black),
         ),
         elevation: 0.5,
       ),

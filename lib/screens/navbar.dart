@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'favorites_screen.dart';
 import 'category_screen.dart';
 import 'home_screen.dart';
-import 'cart_screen.dart';
 
 class BottomTabs extends StatefulWidget {
   @override
@@ -15,7 +14,6 @@ class _BottomTabsState extends State<BottomTabs> {
     HomeScreen(),
     Categoryscreen(),
     Favoritescreen(),
-    Cartscreen(),
     Profilescreen(),
   ];
   int _selectedPageIndex = 0;
@@ -42,8 +40,6 @@ class _BottomTabsState extends State<BottomTabs> {
               icon: Icon(Icons.category), label: 'Category'),
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite), label: 'Favorite'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_bag), label: 'Cart'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
         ],
       ),

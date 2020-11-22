@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import '../widgets/horizontal_listview.dart';
 
+import '../widgets/cart_icon.dart';
+
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,12 +22,14 @@ class HomeScreen extends StatelessWidget {
         ));
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black54),
         backgroundColor: Colors.white,
         title: Text(
           "Shopping App",
           style: TextStyle(fontFamily: 'pacifico', color: Colors.black),
         ),
         elevation: 0.5,
+        actions: [CartIcon()],
       ),
       body: ListView(
         children: <Widget>[

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import '../screens/item_details.dart';
 import 'package:provider/provider.dart';
 import '../models/product.dart';
+import '../models/cart.dart';
 
 class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
+    final cart = Provider.of<Cart>(context, listen: false);
     return GridTile(
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -44,7 +46,6 @@ class ProductItem extends StatelessWidget {
                     ],
                   ),
                 ),
-                Spacer(),
                 Text(
                   product.price.toString(),
                   textAlign: TextAlign.start,
@@ -55,6 +56,7 @@ class ProductItem extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
+                Spacer(),
                 Divider(
                   height: 0,
                 ),
@@ -72,7 +74,11 @@ class ProductItem extends StatelessWidget {
                       ),
                       IconButton(
                           icon: Icon(Icons.add_shopping_cart_sharp),
-                          onPressed: null)
+                          color: Colors.grey,
+                          onPressed: () {
+                            cart.addItem(product.id, product.price,
+                                product.title, product.imageUrl);
+                          }),
                     ],
                   ),
                 ),
