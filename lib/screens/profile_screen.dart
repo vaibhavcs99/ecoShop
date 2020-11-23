@@ -84,7 +84,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         InkWell(
             onTap: () {
-              openMyInfo(context);
+              openMyInfo();
             },
             child: ListTile(
                 title: Text("Profile",
@@ -100,7 +100,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         InkWell(
             onTap: () {
-              openMyInfo(context);
+              openMyInfo();
             },
             child: ListTile(
                 title: Text("Orders",
@@ -116,7 +116,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         InkWell(
             onTap: () {
-              openMyInfo(context);
+              openMyInfo();
             },
             child: ListTile(
                 title: Text("Settings",
@@ -132,7 +132,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         InkWell(
             onTap: () {
-              openMyInfo(context);
+              openMyInfo();
             },
             child: ListTile(
                 title: Text("Invite a Friend",
@@ -148,7 +148,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         InkWell(
             onTap: () {
-              openMyInfo(context);
+              openMyInfo();
             },
             child: ListTile(
                 title: Text("Logout",
@@ -166,7 +166,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  void openMyInfo(context) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Myinfo()));
+  void openMyInfo() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MyInfo()));
   }
 }
