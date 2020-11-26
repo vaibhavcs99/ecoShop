@@ -1,6 +1,7 @@
 import 'package:ecoShop/shared/styles.dart';
 import 'package:flutter/material.dart';
 import 'profile_screen/myinfo.dart';
+import 'profile_screen/orders_screen.dart';
 
 class Profilescreen extends StatelessWidget {
   @override
@@ -100,7 +101,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         InkWell(
             onTap: () {
-              openMyInfo();
+              openOrderScreen();
             },
             child: ListTile(
                 title: Text("Orders",
@@ -169,4 +170,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void openMyInfo() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => MyInfo()));
   }
+
+  void openOrderScreen() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => OrderScreen()));
+  }  
 }
