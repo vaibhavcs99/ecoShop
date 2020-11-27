@@ -29,48 +29,48 @@ class CartScreen extends StatelessWidget {
             cart.items.values.toList()[i].quantity,
             cart.items.values.toList()[i].imageUrl),
       ),
-      bottomNavigationBar: 
-      Container(
-        margin: EdgeInsets.only(left: 16, right: 16, bottom: 15),
-        child:Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          InkWell(
-              child: Container(
-                padding: EdgeInsets.all(8.0),
-                height: 45.0,
-                child: Center(
-                  child: Text('\ Cart Total: ${cart.totalAmount}'),
-                ),
-              ),
-            ),
-          
-          InkWell(
-              onTap: (){
-                Provider.of<Orders>(context, listen: false).addOrder(
-                  cart.items.values.toList(),
-                  cart.totalAmount,
-                  );
-                  cart.clear();
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(30)),
-                  gradient: gradientButtons,
-                ),
-                padding: EdgeInsets.all(10.0),
-                height: 45.0,
-                child: new Center(
-                  child: new Text(
-                    'Place Order',
-                    style: TextStyle(color: Colors.white),
+      bottomNavigationBar: Container(
+        child: Card(
+          margin: EdgeInsets.only(bottom: 15),
+          child: Padding(
+            padding: EdgeInsets.all(4),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(8.0),
+                  height: 45.0,
+                  child: Center(
+                    child: Text('\ Cart Total: ${cart.totalAmount}'),
                   ),
                 ),
-              ),
+                InkWell(
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                  onTap: () {
+                    Provider.of<Orders>(context, listen: false).addOrder(
+                      cart.items.values.toList(),
+                      cart.totalAmount,
+                    );
+                    cart.clear();
+                  },
+                  child: Ink(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                        gradient: gradientButtons),
+                    padding: EdgeInsets.all(10.0),
+                    height: 45.0,
+                    child: Center(
+                      child: Text(
+                        'Place Order',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          
-        ],
-      ),
+          ),
+        ),
       ),
     );
   }

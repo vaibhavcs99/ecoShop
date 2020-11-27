@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import '../widgets/horizontal_listview.dart';
 
-import '../widgets/cart_icon.dart';
+import '../shared/cart_icon.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

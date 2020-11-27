@@ -3,21 +3,7 @@ import 'package:flutter/material.dart';
 import 'profile_screen/myinfo.dart';
 import 'profile_screen/orders_screen.dart';
 
-class Profilescreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ProfileScreen(),
-    );
-  }
-}
-
-class ProfileScreen extends StatefulWidget {
-  @override
-  _ProfileScreenState createState() => _ProfileScreenState();
-}
-
-class _ProfileScreenState extends State<ProfileScreen> {
+class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +71,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         InkWell(
             onTap: () {
-              openMyInfo();
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => MyInfo()));
             },
             child: ListTile(
                 title: Text("Profile",
@@ -101,7 +88,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         InkWell(
             onTap: () {
-              openOrderScreen();
+              Navigator.of(context).pushNamed(OrderScreen.routeName);
             },
             child: ListTile(
                 title: Text("Orders",
@@ -167,11 +154,5 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  void openMyInfo() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => MyInfo()));
-  }
-
-  void openOrderScreen() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => OrderScreen()));
-  }  
+  void openMyInfo() {}
 }

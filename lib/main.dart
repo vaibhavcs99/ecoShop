@@ -7,6 +7,7 @@ import 'screens/item_details.dart';
 import 'models/cart.dart';
 import './models/orders.dart';
 import './screens/profile_screen/orders_screen.dart';
+import './screens/order_details.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
           ItemDetails.path: (ctx) => ItemDetails(),
           CartScreen.path: (ctx) => CartScreen(),
           OrderScreen.routeName: (ctx) => OrderScreen(),
+          OrderDetails.path: (ctx) => OrderDetails(),
         },
         theme: ThemeData(primarySwatch: Colors.purple, fontFamily: 'poppins'),
       ),
