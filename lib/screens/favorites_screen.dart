@@ -1,4 +1,4 @@
-import 'package:ecoShop/widgets/cart_icon.dart';
+import 'package:ecoShop/shared/cart_icon.dart';
 import 'package:flutter/material.dart';
 import '../models/products_provider.dart';
 import 'package:provider/provider.dart';

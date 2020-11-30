@@ -3,6 +3,7 @@ import '../screens/item_details.dart';
 import 'package:provider/provider.dart';
 import '../models/product.dart';
 import '../models/cart.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ProductItem extends StatelessWidget {
   @override
@@ -47,7 +48,7 @@ class ProductItem extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  product.price.toString(),
+                  "\₹${product.price}",
                   textAlign: TextAlign.start,
                   maxLines: 1,
                   softWrap: true,
@@ -61,25 +62,35 @@ class ProductItem extends StatelessWidget {
                   height: 0,
                 ),
                 Consumer<Product>(
-                  builder: (context, value, child) => Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.favorite),
-                        color: product.favorite ? Colors.red : Colors.grey,
-                        onPressed: () {
-                          product.toggleFavorite();
-                        },
-                      ),
-                      IconButton(
-                          icon: Icon(Icons.add_shopping_cart_sharp),
-                          color: Colors.grey,
+                  builder: (context, value, child) => IntrinsicHeight(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        IconButton(
+                          icon: Icon(Icons.favorite),
+                          color: product.favorite ? Colors.red : Colors.grey,
                           onPressed: () {
-                            cart.addItem(product.id, product.price,
-                                product.title, product.imageUrl);
-                          }),
-                    ],
+                            product.toggleFavorite();
+                          },
+                        ),
+                        VerticalDivider(
+                          width: 1,
+                        ),
+                        IconButton(
+                            icon: Icon(Icons.add_shopping_cart_sharp),
+                            color: Colors.grey,
+                            onPressed: () {
+                              Fluttertoast.showToast(
+                                  msg: "Added to Cart",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  fontSize: 16.0);
+                              cart.addItem(product.id, product.price,
+                                  product.title, product.imageUrl);
+                            }),
+                      ],
+                    ),
                   ),
                 ),
               ],

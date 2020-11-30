@@ -1,29 +1,31 @@
+import 'package:ecoShop/screens/order_details.dart';
 import 'package:flutter/material.dart';
 import '../models/orders.dart' as ord;
 import 'package:intl/intl.dart';
 
 class OrderItem extends StatelessWidget {
-   final ord.OrderItem order;
-   OrderItem(this.order);
+  final ord.OrderItem order;
+  OrderItem(this.order);
 
   @override
   Widget build(BuildContext context) {
-    return Card(margin: EdgeInsets.all(10),
-    child: Column(
-      children: <Widget>[
-        ListTile(title: Text('\$${order.amount}'),
-        subtitle: Text(
-          DateFormat('dd MM yyyy hh:mm').format(order.dateTime),
-        ),
-        trailing: IconButton(icon: Icon(Icons.expand_more),
-        onPressed: (){
-          
-        },
-        )
-        ),
-      ],
-    ),
-      
+    return Card(
+      margin: EdgeInsets.all(10),
+      child: Column(
+        children: <Widget>[
+          ListTile(
+            onTap: () {
+              Navigator.of(context)
+                  .pushNamed(OrderDetails.path, arguments: order.id);
+            },
+            title: Text('\₹${order.amount}'),
+            subtitle: Text(
+              DateFormat('dd MM yyyy hh:mm').format(order.dateTime),
+            ),
+            trailing: Icon(Icons.keyboard_arrow_right),
+          ),
+        ],
+      ),
     );
   }
 }

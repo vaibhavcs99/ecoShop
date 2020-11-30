@@ -12,9 +12,9 @@ class BottomTabs extends StatefulWidget {
 class _BottomTabsState extends State<BottomTabs> {
   List<Widget> _pages = [
     HomeScreen(),
-    Categoryscreen(),
+    CategoryScreen(),
     Favoritescreen(),
-    Profilescreen(),
+    ProfileScreen(),
   ];
   int _selectedPageIndex = 0;
   void _selectPage(int index) {

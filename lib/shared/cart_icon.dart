@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/cart.dart';
-import 'badge.dart';
+import '../widgets/badge.dart';
 import '../screens/cart_screen.dart';
 
 class CartIcon extends StatelessWidget {
