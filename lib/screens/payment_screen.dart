@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../shared/styles.dart';
+import '../models/orders.dart';
+import 'home_screen.dart';
 import '../models/cart.dart' show Cart;
 import 'package:provider/provider.dart';
-import '../widgets/cart_item.dart' as carti;
-import 'order_confirm.dart';
 
-class CartScreen extends StatelessWidget {
-  static const path = '/cart-screen';
+class PaymentScreen extends StatelessWidget{
+  static const path = '/payment';
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
@@ -15,21 +15,12 @@ class CartScreen extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         title: Text(
-          "Cart",
+          "Payment Options",
           style: TextStyle(fontFamily: 'pacifico', color: Colors.black),
         ),
         elevation: 0.5,
-      ),
-      body: ListView.builder(
-        itemCount: cart.itemCount,
-        itemBuilder: (ctx, i) => carti.CartItem(
-            cart.items.values.toList()[i].id,
-            cart.items.values.toList()[i].title,
-            cart.items.values.toList()[i].price,
-            cart.items.values.toList()[i].quantity,
-            cart.items.values.toList()[i].imageUrl),
-      ),
-      bottomNavigationBar: Container(
+      ), 
+        bottomNavigationBar: Container(
         child: Card(
           margin: EdgeInsets.only(bottom: 15),
           child: Padding(
@@ -47,14 +38,14 @@ class CartScreen extends StatelessWidget {
                 InkWell(
                   borderRadius: BorderRadius.all(Radius.circular(30)),
                   onTap: () {
-                    //Provider.of<Orders>(context, listen: false).addOrder(
-                     // cart.items.values.toList(),
-                     // cart.totalAmount,
-                    //);
-                    //cart.clear();
-                    Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => OrderConfirm()),
+                    Provider.of<Orders>(context, listen: false).addOrder(
+                      cart.items.values.toList(),
+                      cart.totalAmount,
                     );
+                    cart.clear();
+                    Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );                    
                   },
                   child: Ink(
                     decoration: BoxDecoration(
@@ -64,7 +55,7 @@ class CartScreen extends StatelessWidget {
                     height: 45.0,
                     child: Center(
                       child: Text(
-                        'Place Order',
+                        '  Confirm  ',
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -74,7 +65,7 @@ class CartScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      ),             
     );
   }
 }
