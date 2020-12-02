@@ -1,11 +1,11 @@
-import 'package:ecoShop/screens/order_details.dart';
+import 'package:ecoShop/screens/order_detail.dart';
 import 'package:flutter/material.dart';
-import '../models/orders.dart' as ord;
+import '../models/order.dart' as ord;
 import 'package:intl/intl.dart';
 
-class OrderItem extends StatelessWidget {
+class OrderDetail extends StatelessWidget {
   final ord.OrderItem order;
-  OrderItem(this.order);
+  OrderDetail(this.order);
 
   @override
   Widget build(BuildContext context) {

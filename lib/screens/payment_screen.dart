@@ -1,15 +1,15 @@
+import 'package:ecoShop/screens/order_complete.dart';
 import 'package:flutter/material.dart';
 import '../shared/styles.dart';
-import '../models/orders.dart';
-import 'home_screen.dart';
+import '../models/order.dart';
 import '../models/cart.dart' show Cart;
 import 'package:provider/provider.dart';
 
-class PaymentScreen extends StatelessWidget{
+class PaymentScreen extends StatelessWidget {
   static const path = '/payment';
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<Cart>(context);
+    final cart = Provider.of<Cart>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
@@ -19,8 +19,8 @@ class PaymentScreen extends StatelessWidget{
           style: TextStyle(fontFamily: 'pacifico', color: Colors.black),
         ),
         elevation: 0.5,
-      ), 
-        bottomNavigationBar: Container(
+      ),
+      bottomNavigationBar: Container(
         child: Card(
           margin: EdgeInsets.only(bottom: 15),
           child: Padding(
@@ -43,9 +43,7 @@ class PaymentScreen extends StatelessWidget{
                       cart.totalAmount,
                     );
                     cart.clear();
-                    Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => HomeScreen()),
-                    );                    
+                    Navigator.of(context).pushNamed(OrderComplete.path);
                   },
                   child: Ink(
                     decoration: BoxDecoration(
@@ -65,7 +63,7 @@ class PaymentScreen extends StatelessWidget{
             ),
           ),
         ),
-      ),             
+      ),
     );
   }
 }

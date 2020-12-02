@@ -1,8 +1,8 @@
-import 'package:ecoShop/models/orders.dart';
+import 'package:ecoShop/models/order.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../widgets/cart_item.dart';
-import '../models/orders.dart';
+import '../widgets/order_detail_items.dart' as ord;
+import '../models/order.dart';
 
 class OrderDetails extends StatelessWidget {
   static const path = '/order-details';
@@ -22,7 +22,7 @@ class OrderDetails extends StatelessWidget {
       ),
       body: ListView.builder(
           itemCount: orderedItem.products.length,
-          itemBuilder: (ctx, i) => CartItem(
+          itemBuilder: (ctx, i) => ord.OrderItem(
               orderedItem.products.toList()[i].id,
               orderedItem.products.toList()[i].title,
               orderedItem.products.toList()[i].price,
